@@ -1,0 +1,28 @@
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th><?= $this->translate('Description') ?></th>
+        <th><?= $this->translate('Percentage') ?></th>
+        <th><?= $this->translate('Actions') ?></th>
+      </tr>
+    </thead>
+    <tbody>
+    <?php if (count($this->taxes) === 0) : ?>
+    	<tr>
+    		<td colspan="3" style="text-align: center; font-style: italic;">
+    			<?= $this->translate("No taxes have been set.") ?>
+    		</td>
+    	</tr>
+    <?php else : ?>
+    	<?php foreach ($this->taxes as $tax) : ?>
+    	<tr>
+    		<td><?= $tax->description ?></td>
+    		<td><?= ($tax->percentage * 100) . '%' ?></td>
+    		<td></td>
+    	</tr>
+    	<?php endforeach; ?>
+    <?php endif; ?>
+    </tbody>
+  </table>
+</div>
